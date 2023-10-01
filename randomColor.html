@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Color</title>
+    <style>
+        body{
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            display: flex;
+            height: 100vh;
+            align-items: center;
+            justify-content: center;
+            background: grey;
+        }
+
+        .container{
+            background: white;
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            max-width: 300px;;
+            border-radius: 10px;
+            border: none;
+        }
+
+        button{
+            height: 60px;
+            width: 100%;
+            border-radius: 8px;
+            border: none;
+            background: #002339;
+            box-shadow: 5px 3px 3px green;
+            color: #fff;
+            font-size: 20px;
+            padding: 10px 40px;
+        }
+
+        button:hover{
+            cursor: pointer;
+            background-color: wheat;
+            color: black;
+            box-shadow: none;
+            border: 2px solid #002339;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="colorcode">Hex Code</h1>
+        <button id="colorgenerate">Generate</button>
+    </div>
+</body>
+<script>
+    const hexcode = document.getElementById('colorcode');
+    const hexgenerate = document.getElementById('colorgenerate');
+    const character = "0123456789ABCDEF";
+    console.log(hexcode,hexgenerate,character);
+    function random() {
+        let radomChar = "#";
+        for (let index = 0; index < 6; index++) {
+            const element = character[Math.floor(Math.random()*character.length)];
+            radomChar+=element;
+        }
+        document.body.style.backgroundColor = radomChar;
+        hexcode.innerText = radomChar; 
+
+        // Trying setInterval
+        // setInterval(() => {
+        //     random();
+        // }, 1000);
+    }
+    window.addEventListener("DOMContentLoaded",random)
+    hexgenerate.addEventListener("click",random);
+</script>
+</html>
+	
