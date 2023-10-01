@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+    <style>
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: #002339;
+            color: azure
+        }
+        .main{
+            background-color: #088b50;
+            border-radius: 8px;
+            border: none;
+            padding: 30px 40px;
+            max-width: 300px;
+            text-align: center;
+        }
+        button{
+            border-radius: 10px;
+            border: none;
+            padding: 10px 20px;
+        }
+        button:hover{
+            background-color: #002339;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <h1>Counter</h1>
+        <h1 id="counter">0</h1>
+        <div class="btn-box">
+            <button id="btn1" class="btn">
+                Decrease
+            </button>
+            <button id="btn2" class="btn">
+                Reset
+            </button>
+            <button id="btn3" class="btn">
+                Increase
+            </button>
+        </div>
+    </div>
+</body>
+<script>
+    const btns = document.querySelectorAll(".btn")
+    const counter = document.getElementById("counter")
+    // console.log(btns,counter);
+    let count;
+    btns.forEach(function (e) {
+        // console.log(e);
+        e.addEventListener("click", function (btn) {
+            const b = btn.currentTarget.id;
+            // console.log(b);
+            if (b=="btn1") {
+                counter.style.color = "red";
+                counter.textContent--;
+            }
+            else if (b=="btn2") {
+                counter.style.color = "white";
+                counter.textContent=0;
+            }
+            else if (b=="btn3") {
+                counter.style.color = "blue";
+                counter.textContent++;
+            }
+            
+        })
+        // if (e.id=='btn1') {
+        //     console.log(e.currentTarget);
+        // }
+    })
+</script>
+</html>
